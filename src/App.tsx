@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
-import logo from './logo.svg'
+import hero from './res/hero_image.png';
+import NavBar from './components/navbar/NavBar';
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <NavBar />
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={hero} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
@@ -22,15 +23,8 @@ function App() {
           </a>
         </header>
       </div>
-
     </>
   );
-}
-
-function NavBar() {
-  // TODO: Make the NavBar look nicer. Learn some css while your at it.
-  // TODO: Change the logo! once we get a graphic desiner
-  return <nav className="App-navbar"> <img src={logo} alt='Logo' width={50} height={50} /> NITE</nav>
 }
 
 export default App;
