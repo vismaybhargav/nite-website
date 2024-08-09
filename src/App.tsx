@@ -9,7 +9,7 @@ function App() {
       <NavBar />
       <div className="App">
         <header className="App-header">
-          <img src={hero} className="App-logo" alt="logo" />
+          <img src={hero} className="hero-bg" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
