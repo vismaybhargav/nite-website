@@ -37,12 +37,23 @@
 }
 
 .hero-advocate-btn {
-    width: 250px;
-    height: 100px;
+    padding: 10px;
     font-size: larger;
     border-radius: 5px;
     border: 0; 
+    animation: riseUp 2s ease-out forwards; 
+    background-color: white;
+
+}
+
+.hero-mission-statement {
+    padding: 10px;
+    font-size: larger;
+    border-radius: 5px;
+    border: 10px;
+    border-color: white;
     animation: riseUp 2s ease-out forwards;
+    background-color: transparent;
 }
 
 @keyframes riseUp {

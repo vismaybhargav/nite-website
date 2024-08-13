@@ -10,9 +10,12 @@ function Hero() {
         <h1 className="hero-title">NITE</h1>
         <h3 className="hero-title-desc">
           A non-profit focused on fostering the growth of nuerodivergent
-          individuals' technological prewess.
+          individuals' technological prowess.
         </h3>
-        <button className="hero-advocate-btn">Be A NueroAdvocate</button>
+        <div>
+          <button className="hero-advocate-btn">Become A Nuero-Advocate</button>
+          <button className="hero-mission-statement">Mission Statement</button>
+        </div>
       </div>
   </div>
 
