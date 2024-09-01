@@ -1,6 +1,8 @@
 import React from "react";
 import heroImage from '../../res/hero_image.png';
 import './HeroComponent.css'
+import Button from "../widget/Button";
+import Color from "../../util/Color";
 
 function Hero() {
   return (
@@ -13,8 +15,16 @@ function Hero() {
           individuals' technological prowess.
         </h3>
         <div>
-          <button className="hero-advocate-btn">Become A Nuero-Advocate</button>
-          <button className="hero-mission-statement">Mission Statement</button>
+          <Button filled={true} 
+                  rounded={true} 
+                  color={Color.WHITE} 
+                  text="Become a Neuro-Advocate"
+          />         
+          <Button filled={false}
+                  rounded={true}
+                  color={Color.WHITE}
+                  text="Mission Statement"
+          />
         </div>
       </div>
   </div>
