@@ -13,8 +13,8 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontSize: {
-        sm: "0.8rem",
-        base: "1rem",
+        sm: "1rem",
+        base: "20rem",
       }
     },
   },
