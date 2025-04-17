@@ -8,7 +8,7 @@ export default function AboutUs() {
                 <div className="space-y-12">
                     {/* About Us Section */}
                     <div>
-                        <h2 className="text-2xl font-semibold text-gray-800 mb-4">About Us</h2>
+                        <h1 className="text-2xl font-semibold text-gray-800 mb-4">About Us</h1>
                         <p className="text-gray-600 leading-relaxed mb-6">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
@@ -29,10 +29,10 @@ export default function AboutUs() {
                 {/* Right Image Grid */}
                 <div className="grid grid-cols-2 gap-4">
                     {/* Placeholder Boxes for Images */}
-                    <div className="bg-gray-300 h-40 rounded-xl"></div>
-                    <div className="bg-gray-300 h-40 rounded-xl"></div>
-                    <div className="bg-gray-300 h-40 rounded-xl"></div>
-                    <div className="bg-gray-300 h-40 rounded-xl"></div>
+                    <div className="bg-gray-300 h-80 rounded-xl"></div>
+                    <div className="bg-gray-300 h-80 rounded-xl"></div>
+                    <div className="bg-gray-300 h-80 rounded-xl"></div>
+                    <div className="bg-gray-300 h-80 rounded-xl"></div>
                 </div>
             </div>
         </div>
