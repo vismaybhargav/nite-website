@@ -45,63 +45,70 @@ export default function Hero() {
     }, [])
 
     return (
-        <section className="py-20 md:py-32">
-            <div className="container flex flex-col items-center text-center">
-                <h1 className="mb-8 text-5xl md:text-7xl font-bold flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-4">
-                    <span className="inline-block">We are</span>
+        <section className="text-white">
+            <div className="container flex flex-col items-top text-center">
+                <div className="hero min-h-screen">
+                    <video autoPlay muted loop className="cover w-full h-full object-cover">
+                        <source src="hero-bg.mp4" type="video/mp4"/>
+                    </video>
+                    <div className="hero-overlay"></div>
+                    <h1 className="hero-content mb-8 text-5xl md:text-7xl font-bold flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-4">
+                        <span className="inline-block">We are</span>
 
-                    {/* Hidden elements for measuring text width */}
-                    <div className="absolute opacity-0 pointer-events-none">
-                        {words.map((word, index) => (
-                            <span
-                                key={`measure-${index}`}
-                                //@ts-expect-error This is a ref, it's fine
-                                ref={(el) => (textRefs.current[index] = el)}
-                                className="text-5xl md:text-7xl font-bold"
-                            >
+                        {/* Hidden elements for measuring text width */}
+                        <div className="absolute opacity-0 pointer-events-none">
+                            {words.map((word, index) => (
+                                <span
+                                    key={`measure-${index}`}
+                                    //@ts-expect-error This is a ref, it's fine
+                                    ref={(el) => (textRefs.current[index] = el)}
+                                    className="text-5xl md:text-7xl font-bold"
+                                >
                                 {/*TODO Use the NITE Logo here insteed*/}
-                                {word === "NITE" ? (
-                                    <>
-                                        <span className="text-[#202296]">NI</span>
-                                        <span className="text-[#3b684a]">TE</span>
-                                    </>
-                                ) : (
-                                    word
-                                )}
+                                    {word === "NITE" ? (
+                                        <>
+                                            <span className="text-[#202296]">NI</span>
+                                            <span className="text-[#3b684a]">TE</span>
+                                        </>
+                                    ) : (
+                                        word
+                                    )}
                             </span>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
 
-                    {/* Animated text container with fixed width */}
-                    <div
-                        ref={containerRef}
-                        style={{
-                            width: containerWidth,
-                            minHeight: "1.5em",
-                        }}
-                        className="relative flex items-center justify-center md:justify-start"
-                    >
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={currentIndex}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.5 }}
-                                className="absolute inset-0 flex items-center justify-center md:justify-start"
-                            >
-                                {words[currentIndex] === "NITE" ? (
-                                    <span>
-                                        <span className="text-[#202296]">NI</span>
-                                        <span className="text-[#3b684a]">TE</span>
-                                    </span>
-                                ) : (
-                                    words[currentIndex]
-                                )}
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
-                </h1>
+                        {/* Animated text container with fixed width */}
+                        <div
+                            ref={containerRef}
+                            style={{
+                                width: containerWidth,
+                                minHeight: "1.5em",
+                            }}
+                            className="relative flex items-center justify-center md:justify-start"
+                        >
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={currentIndex}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.5 }}
+                                    className="absolute inset-0 flex items-center justify-center md:justify-start"
+                                >
+                                    {words[currentIndex] === "NITE" ? (
+                                        <span>
+                                            <span className="text-[#202296]">NI</span>
+                                            <span className="text-[#3b684a]">TE</span>
+                                        </span>
+                                    ) : (
+                                        words[currentIndex]
+                                    )}
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+                    </h1>
+                </div>
+
                 <p className="max-w-3xl mb-10 text-sm text-center">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                     magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
