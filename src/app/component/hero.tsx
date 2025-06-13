@@ -1,8 +1,7 @@
 "use client"
 
-import Link from "next/link"
-import { motion, AnimatePresence } from "motion/react"
 import { useState, useEffect, useRef } from "react"
+import Link from "next/link"
 
 export default function Hero() {
     const words = ["Thinkers", "Educators", "Together", "NITE"]
@@ -45,92 +44,55 @@ export default function Hero() {
     }, [])
 
     return (
-        <section className="text-white">
-            <div className="container flex flex-col items-top text-center">
-                <div className="hero min-h-screen">
-                    <video autoPlay muted loop className="cover w-full h-full object-cover">
-                        <source src="hero-bg.mp4" type="video/mp4"/>
-                    </video>
-                    <div className="hero-overlay"></div>
-                    <h1 className="hero-content mb-8 text-5xl md:text-7xl font-bold flex flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-4">
-                        <span className="inline-block">We are</span>
+        <section id="home" className="relative h-screen w-full overflow-hidden">
+            {/* Video Background */}
+            <video autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover">
+                <source src="/hero-bg.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
 
-                        {/* Hidden elements for measuring text width */}
-                        <div className="absolute opacity-0 pointer-events-none">
-                            {words.map((word, index) => (
-                                <span
-                                    key={`measure-${index}`}
-                                    //@ts-expect-error This is a ref, it's fine
-                                    ref={(el) => (textRefs.current[index] = el)}
-                                    className="text-5xl md:text-7xl font-bold"
-                                >
-                                {/*TODO Use the NITE Logo here insteed*/}
-                                    {word === "NITE" ? (
-                                        <>
-                                            <span className="text-[#202296]">NI</span>
-                                            <span className="text-[#3b684a]">TE</span>
-                                        </>
-                                    ) : (
-                                        word
-                                    )}
-                            </span>
-                            ))}
-                        </div>
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-black/40" />
 
-                        {/* Animated text container with fixed width */}
-                        <div
-                            ref={containerRef}
-                            style={{
-                                width: containerWidth,
-                                minHeight: "1.5em",
-                            }}
-                            className="relative flex items-center justify-center md:justify-start"
-                        >
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={currentIndex}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -20 }}
-                                    transition={{ duration: 0.5 }}
-                                    className="absolute inset-0 flex items-center justify-center md:justify-start"
-                                >
-                                    {words[currentIndex] === "NITE" ? (
-                                        <span>
-                                            <span className="text-[#202296]">NI</span>
-                                            <span className="text-[#3b684a]">TE</span>
-                                        </span>
-                                    ) : (
-                                        words[currentIndex]
-                                    )}
-                                </motion.div>
-                            </AnimatePresence>
+            {/* Hero Content */}
+            <div className="relative z-10 flex h-full items-center justify-center">
+                <div className="container px-4 md:px-6">
+                    <div className="flex flex-col items-center space-y-6 text-center">
+                        <div className="space-y-4">
+                            <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl">
+                                Empower with NITE
+                            </h1>
+                            <p className="mx-auto max-w-[700px] text-lg text-gray-200 md:text-xl lg:text-2xl">
+                                Developing the community around us through tech
+                            </p>
                         </div>
-                    </h1>
+                        <div className="flex flex-col gap-4 sm:flex-row">
+                            <Link
+                                href="#features"
+                                className="inline-flex h-12 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-black shadow-lg transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                            >
+                                Get Started
+                            </Link>
+                            <Link
+                                href="#about"
+                                className="inline-flex h-12 items-center justify-center rounded-md border-2 border-white bg-transparent px-8 text-sm font-medium text-white shadow-lg transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                            >
+                                Learn More
+                            </Link>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <p className="max-w-3xl mb-10 text-sm text-center">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                    est laborum.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                    <Link
-                        href="#"
-                        className="btn btn-primary rounded-full bg-[#202296] border-[#202296] hover:bg-[#20216a] hover:border-[#20216a]"
-                    >
-                        Become a NITE Member
-                    </Link>
-                    <Link
-                        href="#"
-                        className="btn btn-outline rounded-full border-[#3b684a] text-[#3b684a] hover:bg-[#3b684a] hover:text-white hover:border-[#3b684a]"
-                    >
-                        Donate
-                    </Link>
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+                <div className="flex h-6 w-4 justify-center rounded-full border-2 border-white">
+                    <div className="mt-1 h-2 w-0.5 rounded-full bg-white"></div>
                 </div>
             </div>
         </section>
     )
 }
+
+
+
