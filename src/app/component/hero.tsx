@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
+import AnimatedText from "@/app/component/animated_text";
 
 export default function Hero() {
     const words = ["Thinkers", "Educators", "Together", "NITE"]
@@ -59,12 +60,13 @@ export default function Hero() {
                 <div className="container px-4 md:px-6">
                     <div className="flex flex-col items-center space-y-6 text-center">
                         <div className="space-y-4">
-                            <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl">
+                            <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl font-giest">
                                 Empower with NITE
                             </h1>
-                            <p className="mx-auto max-w-[700px] text-lg text-gray-200 md:text-xl lg:text-2xl">
+                            <AnimatedText text="Developing the community around us through tech" className="text-lg md:text-xl lg:text-2xl" />
+                            {/*<p className="mx-auto max-w-[700px] text-lg text-gray-200 md:text-xl lg:text-2xl">
                                 Developing the community around us through tech
-                            </p>
+                            </p>*/}
                         </div>
                         <div className="flex flex-col gap-4 sm:flex-row">
                             <Link
