@@ -23,7 +23,7 @@ export default function Navbar(props: {noScrollClear: boolean }) {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                scrolled() ? "bg-white/60 backdrop-blur-md shadow-lg rounded-4xl mt-2 ml-5 mr-5" : "bg-transparent"
+                scrolled() ? "bg-white border-b-gray-400 border-2" : "bg-transparent"
             }`}
         >
             <div className="container mx-auto px-4 md:px-6">
@@ -37,7 +37,7 @@ export default function Navbar(props: {noScrollClear: boolean }) {
 
                     <div className="hidden md:flex items-center space-x-8">
                         <Link
-                            href="#leadership"
+                            href="/leadership"
                             className={`transition-colors hover:opacity-80 ${scrolled() ? "text-gray-700" : "text-white"}`}
                         >
                             Leadership

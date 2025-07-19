@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import AnimatedText from "@/app/component/animated_text";
+import { Archivo } from "next/dist/compiled/@next/font/dist/google";
 
 export default function Hero() {
     const words = ["Thinkers", "Educators", "Together", "NITE"]
@@ -60,7 +61,7 @@ export default function Hero() {
                 <div className="container px-4 md:px-6">
                     <div className="flex flex-col items-center space-y-6 text-center">
                         <div className="space-y-4">
-                            <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl font-giest">
+                            <h1 className={`text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl`}>
                                 Empower with NITE
                             </h1>
                             <AnimatedText text="Developing the community around us through tech" className="text-lg md:text-xl lg:text-2xl" />
