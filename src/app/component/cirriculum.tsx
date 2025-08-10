@@ -5,6 +5,7 @@ import AnimatedText from "@/app/component/animated_text";
 import Image from "next/image"
 import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
 import {useRef, useState} from "react";
+import {archivo} from "@/app/fonts/font";
 
 const courses = [
     {
@@ -80,58 +81,6 @@ const phases: Phase[] = [
     }
 ]
 
-function CirriculumSection() {
-    return (
-        <section id="curriculum" className="py-24 bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50 relative">
-            <div className="container mx-auto px-4 md:px-6">
-                <ScrollReveal>
-                    <div className="text-center mb-16">
-                        <AnimatedText
-                            text="Curriculum"
-                            className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl mb-6 rainbow-text"
-                            type="slide"
-                        />
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto mt-5">
-                            We created a variety of courses that teach basic computer skills all the way to programming
-                            languages and robotics. Each course is designed to be accessible and engaging.
-                        </p>
-                    </div>
-                </ScrollReveal>
-
-                <div className="space-y-32">
-                    {courses.map((course, index) => (
-                        <ScrollReveal key={index} delay={index * 200}>
-                            <div
-                                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                                    index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
-                                } group`}
-                            >
-                                <div
-                                    className={`${index % 2 === 1 ? "lg:col-start-2" : ""} transition-all duration-300 hover:scale-105`}
-                                >
-                                    <h2 className="text-3xl font-bold text-gray-900 mb-6 rainbow-text">{course.title}</h2>
-                                    <h3 className="text-lg text-gray-600 leading-relaxed">{course.description}</h3>
-                                </div>
-                                <div
-                                    className={`${index % 2 === 1 ? "lg:col-start-1" : ""} transition-all duration-300 hover:scale-105`}
-                                >
-                                    <Image
-                                        src={course.image || "/placeholder.svg"}
-                                        alt={course.title}
-                                        width={100}
-                                        height={100}
-                                        className="w-full h-80 object-cover rounded-lg shadow-xl group-hover:shadow-2xl"
-                                    />
-                                </div>
-                            </div>
-                        </ScrollReveal>
-                    ))}
-                </div>
-            </div>
-        </section>
-    )
-}
-
 export default function PhaseSection() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = useState(0);
@@ -153,10 +102,10 @@ export default function PhaseSection() {
     const currentPhase = phases[activeIndex];
 
     return (
-        <section className="relative bg-gray-900">
+        <section className="relative bg-background">
             <div ref={containerRef} className="relative" style={{ height: `${phases.length * 100}vh` }}>
                 {/* Fixed Content Container */}
-                <div className="sticky top-0 h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
+                <div className="sticky top-0 h-screen flex items-center justify-center bg-background overflow-hidden">
                     {/* Main Content */}
                     <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
                         {/* Text Content */}
@@ -165,7 +114,7 @@ export default function PhaseSection() {
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5, ease: "easeInOut" }}
-                            className="text-white space-y-6"
+                            className={`text-foreground ${archivo.className} space-y-6`}
                         >
                             {/* Course Header */}
                             <div className="flex items-center space-x-4 mb-6">
@@ -177,7 +126,7 @@ export default function PhaseSection() {
                             </div>
 
                             {/* Course Title */}
-                            <h2 className="text-4xl md:text-5xl font-bold leading-tight">{currentPhase.title}</h2>
+                            <h2 className="text-3xl md:text-5xl font-bold leading-tight font-stretch-expanded">{currentPhase.title}</h2>
 
                             {/* Course Description */}
                             <p className="text-xl text-white/80 leading-relaxed">{currentPhase.description}</p>
@@ -206,7 +155,7 @@ export default function PhaseSection() {
                                     alt={currentPhase.title}
                                     className="w-full h-96 object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black to-black" />
                             </div>
                         </motion.div>
                     </div>

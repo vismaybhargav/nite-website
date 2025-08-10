@@ -1,53 +1,78 @@
 import React from 'react';
-import Image from 'next/image'
+import { archivo, inter } from '../fonts/font';
+import ScrollReveal from './scroll_reveal';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { BookText, Cpu, Lightbulb, LucideIcon, Rocket, Target, User, Users } from 'lucide-react';
 
 export default function OurMission() {
     return (
-        <section id="about" className="py-20 bg-white">
+        <section id="about" className="py-20 bg-background">
             <div className="container mx-auto px-4 md:px-6">
-                <h2 className="text-center font-bold tracking-tight text-gray-900 sm:text-4xl md:text-7xl lg:text-9xl mb-20">
-                   Our Mission
-                </h2>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-
-                        <p className="text-lg text-gray-600 mb-6">
-                            An environment where community and technology come together.
-                        </p>
-                        <p className="text-lg text-gray-600 mb-30">
-                            Since the beginning, we've been committed to fostering a culture of inclusivity and innovation.
-                            We believe that by providing the right tools and support, we can help individuals reach their full potential.
-                        </p>
-                        <div className="grid grid-cols-3 gap-8">
-                            <StatBox value="3+" label="Allies per session" />
-                            <StatBox value="1:1" label="Interaction" />
-                            <StatBox value="1" label="Session Per Week" />
-                        </div>
-                    </div>
-                    <div className="relative">
-                        <Image
-                            src="/camera-woman.jpg"
-                            alt="About us"
-                            width={1000}
-                            height={800}
-                            className="rounded-lg shadow-xl"
-                        />
-                    </div>
+                <ScrollReveal>
+                    <h2 className={`${archivo.className} text-6xl text-center font-bold tracking-tight font-stretch-expanded text-foreground sm:text-5xl md:text-8xl lg:text-9xl`}>
+                        Our Mission
+                    </h2>
+                </ScrollReveal>
+                <ScrollReveal delay={200}>
+                    <h3 className={`${inter.className} text-center text-2xl sm:text-2xl md:text-2xl lg:text-3xl text-muted-foreground`}>
+                        An environment where neuro-diverse people and technology come together.
+                    </h3>
+                </ScrollReveal>
+                <div className='flex flex-col md:flex-row justify-between gap-8 my-30'>
+                    <ScrollReveal delay={400}>
+                        <MissionBox title="Innovation" desc="Breaking boundaries in learning" icon={Lightbulb} />
+                    </ScrollReveal>
+                    <ScrollReveal delay={600}>
+                        <MissionBox title="Growth" desc="Growing as learners and educators" icon={Rocket} />
+                    </ScrollReveal>
+                    <ScrollReveal delay={800}>
+                        <MissionBox title="Impact" desc="Developing the neurodivergent community" icon={Target} />
+                    </ScrollReveal>
+                    <ScrollReveal delay={1000}>
+                        <MissionBox title="Education" desc="Allowing educators and students to thrive" icon={BookText} />
+                    </ScrollReveal>
+                </div>
+                <ScrollReveal delay={1200}>
+                    <h2 className={`${archivo.className} text-5xl font-bold font-stretch-expanded text-center`}>Our Impact</h2>
+                </ScrollReveal>
+                <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-8 items-center mt-10 mb-40">
+                    <ScrollReveal delay={1600}>
+                        <StatBox value="3+" label="STEM Related Topics" icon={Cpu} />
+                    </ScrollReveal>
+                    <ScrollReveal delay={1400}>
+                        <StatBox value="1:1" label="Interaction" icon={User} />
+                    </ScrollReveal>
+                    <ScrollReveal delay={1600}>
+                        <StatBox value="100%" label="Community Driven" icon={Users} />
+                    </ScrollReveal>
                 </div>
             </div>
         </section>
     )
 }
 
-function StatBox({ value, label }: { value: string; label: string }) {
+function StatBox(props: { value: string; label: string, icon: LucideIcon }) {
     return (
-        <div className="flex text-center bg-gray-100 rounded-lg h-40 justify-ce">
-            <div className="text-3xl font-bold text-gray-900">
-                {value}
-            </div>
-            <div className="text-sm text-gray-600">
-                {label}
-            </div>
+        <Card>
+            <CardContent>
+                <div className="flex justify-between">
+                    <h1 className={`${archivo.className} text-5xl font-extrabold font-stretch-expanded`} >{props.value}</h1>
+                    {props.icon && <props.icon className="size-12" />}
+                </div>
+            </CardContent>
+            <CardFooter>
+                <p className={`${archivo.className} lg:text-xl`}>{props.label}</p>
+            </CardFooter>
+        </Card>
+    )
+}
+
+function MissionBox(props: { title: string, desc: string, icon: LucideIcon }) {
+    return (
+        <div className="flex flex-col items-center gap-2">
+            <props.icon className="size-24" />
+            <h2 className={`${inter.className} text-3xl font-bold`}>{props.title}</h2>
+            <h3 className={`${inter.className} text-xl text-muted-foreground text-center`}>{props.desc}</h3>
         </div>
     )
 }

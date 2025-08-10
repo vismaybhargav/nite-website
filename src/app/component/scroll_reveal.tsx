@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 
 interface ScrollRevealProps {
     children: React.ReactNode
@@ -11,15 +11,13 @@ interface ScrollRevealProps {
     distance?: number
 }
 
-export
-default
-function ScrollReveal({
-                                         children,
-                                         className = "",
-                                         delay = 0,
-                                         direction = "up",
-                                         distance = 50,
-                                     }: ScrollRevealProps) {
+export default function ScrollReveal({
+    children,
+    className = "",
+    delay = 0,
+    direction = "up",
+    distance = 50,
+}: ScrollRevealProps) {
     const getInitialPosition = () => {
         switch (direction) {
             case "up":

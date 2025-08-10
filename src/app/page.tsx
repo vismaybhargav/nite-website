@@ -8,7 +8,7 @@ import CirriculumSection from "@/app/component/cirriculum";
 export default function Home() {
     return (
         <main className="min-h-screen">
-            <Navbar noScrollClear={false}/>
+            <Navbar varient="transparent"/>
             <Hero  />
             <OurMission />
             <AboutUs />
