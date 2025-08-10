@@ -1,38 +1,8 @@
 "use client"
 
-import ScrollReveal from "@/app/component/scroll_reveal";
-import AnimatedText from "@/app/component/animated_text";
-import Image from "next/image"
 import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
 import {useRef, useState} from "react";
 import {archivo} from "@/app/fonts/font";
-
-const courses = [
-    {
-        title: "Course 1",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        image: "/placeholder.svg?height=400&width=600&text=Course+1",
-    },
-    {
-        title: "Course 2",
-        description:
-            "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        image: "/placeholder.svg?height=400&width=600&text=Course+2",
-    },
-    {
-        title: "Course 3",
-        description:
-            "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.",
-        image: "/placeholder.svg?height=400&width=600&text=Course+3",
-    },
-    {
-        title: "Course 4",
-        description:
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-        image: "/placeholder.svg?height=400&width=600&text=Course+4",
-    },
-]
 
 interface Phase {
     title: string,
