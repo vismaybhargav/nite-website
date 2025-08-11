@@ -1,6 +1,6 @@
 "use client"
 
-import {motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
+import {motion, useMotionValueEvent, useScroll, useTransform} from "motion/react";
 import {useRef, useState} from "react";
 import {archivo} from "@/app/fonts/font";
 
