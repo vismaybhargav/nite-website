@@ -61,14 +61,7 @@ const leaders: Leader[] = [
     }
 ];
 
-const members: Member[] = [
-    {
-        "name": "John Doe",
-        "role": "Teacher",
-        "image": "/leader-placeholder.png",
-    }
-];
-
+const members: Member[] = Array<Member>(20).fill({"name": "John Doe", "role": "Teacher", "image": "/leader-placeholder.png"});
 
 export default function LeadershipPage() {
     return (
@@ -86,7 +79,7 @@ export default function LeadershipPage() {
                     </div>
                 <h1 className={`text-7xl ${archivo.className} font-stretch-expanded text-center mt-10`}>Members</h1>
                     <div className="grid grid-cols-4 mt-10 gap-8">
-                        {Array<Member>(20).fill({"name": "John Doe", "role": "Teacher", "image": "/leader-placeholder.png"}).map((member, index) => (
+                        {members.map((member, index) => (
                             <MemberView key={index} member={member} />
                         ))}
                     </div>
@@ -117,12 +110,11 @@ function MemberView(props: { member: Member }) {
         <div className="flex flex-col mx-auto items-center">
             <Avatar className="h-48 w-48">
                 <AvatarImage src={member.image} />
-                <AvatarFallback className={`text-6xl ${archivo.className}`}>CN</AvatarFallback>
+                <AvatarFallback className={`text-6xl ${archivo.className}`}>{initials(member.name)}</AvatarFallback>
             </Avatar>
             <p className={`${inter.className} text-2xl`}>{member.name}</p>
             <p className={`${inter.className} text-muted-foreground`}>{member.role}</p>
         </div>
-        
    );
 }
 
