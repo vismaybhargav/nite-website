@@ -11,12 +11,12 @@ const footerLinks = [
         href: "#",
     },
     {
-        title: "Leadership",
-        href: "#",
+        title: "Team",
+        href: "team",
     },
     {
         title: "Blog",
-        href: "#",
+        href: "blog",
     },
     {
         title: "Affiliations",
