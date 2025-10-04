@@ -31,8 +31,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <Navbar varient="transparent" />
-          {children}
+          <div className="flex min-h-dvh flex-col">
+            <Navbar varient="transparent" />
+            <main className="flex-1">
+              {children}
+            </main>
+          </div>
         </ThemeProvider>
       </body>
     </html>

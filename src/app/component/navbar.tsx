@@ -26,7 +26,7 @@ export default function Navbar(props: { varient?: "transparent" | "opaque" }) {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${archivo.className} ${isScrolled ? "bg-background shadow-md" : "bg-transparent"}`}
+            className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${archivo.className} bg-background shadow-md bg-opacity-50"`}
         >
             <div className="mx-auto px-4 md:px-6">
                 <div className="flex h-16 items-center justify-between">
