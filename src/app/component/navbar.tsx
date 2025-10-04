@@ -1,29 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button";
 import { archivo } from "../fonts/font";
 
-export default function Navbar(props: { varient?: "transparent" | "opaque" }) {
-    const { varient = "opaque" } = props;
-    const [isScrolled, setIsScrolled] = useState(varient === "opaque");
-
-    useEffect(() => {
-        if (varient === "opaque") {
-            return;
-        }
-
-        const handleScroll = () => {
-            const scrollTop = window.scrollY
-            setIsScrolled(scrollTop > 50)
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [])
-
-
+export default function Navbar() {
     return (
         <nav
             className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${archivo.className} bg-background shadow-md bg-opacity-50"`}

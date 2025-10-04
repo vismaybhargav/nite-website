@@ -32,7 +32,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <div className="flex min-h-dvh flex-col">
-            <Navbar varient="transparent" />
+            <Navbar />
             <main className="flex-1">
               {children}
             </main>
