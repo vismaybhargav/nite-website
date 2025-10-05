@@ -1,0 +1,10 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 480'>
+  <defs>
+    <linearGradient id='grad2' x1='0%' y1='0%' x2='100%' y2='0%'>
+      <stop offset='0%' stop-color='#2f1f63'/>
+      <stop offset='100%' stop-color='#513f9c'/>
+    </linearGradient>
+  </defs>
+  <rect fill='url(#grad2)' width='800' height='480' rx='32'/>
+  <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Segoe UI' font-size='38' fill='#ffffff'>Field Notes</text>
+</svg>

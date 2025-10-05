@@ -19,8 +19,8 @@ export default function Navbar() {
                     </Link>
 
                     <div className="md:flex items-center space-x-8">
-                        <NavLink href="team" text="Team" />
-                        <NavLink href="blog" text="Blog" />
+                        <NavLink href="/team" text="Team" />
+                        <NavLink href="/blog" text="Blog" />
                         <NavLink href="https://docs.google.com/forms/d/e/1FAIpQLSct8eLF7BoDtk7puXmQ1uZxcmUjfZ9CxUHxRRO7c8Kha9IxUQ/viewform?usp=header" text="Contact" />
                     </div>
 
